@@ -1,0 +1,7 @@
+### chat api
+
+GET http://127.0.0.1:6688/
+
+### chat api
+
+GET http://127.0.0.1:6688/api/chat
