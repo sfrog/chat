@@ -5,3 +5,34 @@ GET http://127.0.0.1:6688/
 ### chat api
 
 GET http://127.0.0.1:6688/api/chat
+
+### signup user
+
+POST http://localhost:6688/api/signup
+Content-Type: application/json
+
+{
+    "fullname": "test",
+    "email": "test@abc.com",
+    "password": "123456"
+}
+
+### login user
+
+POST http://localhost:6688/api/signin
+Content-Type: application/json
+
+{
+    "email": "test@abc.com",
+    "password": "123456"
+}
+
+### login user invalid
+
+POST http://localhost:6688/api/signin
+Content-Type: application/json
+
+{
+    "email": "test1111@abc.com",
+    "password": "123456"
+}
