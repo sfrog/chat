@@ -19,6 +19,7 @@ Content-Type: application/json
 
 ### login user
 
+# @name login
 POST http://localhost:6688/api/signin
 Content-Type: application/json
 
@@ -36,3 +37,10 @@ Content-Type: application/json
     "email": "test1111@abc.com",
     "password": "123456"
 }
+
+### get chat list
+
+@token = {{login.response.body.token}}
+
+GET http://localhost:6688/api/chat
+Authorization: Bearer {{token}}
