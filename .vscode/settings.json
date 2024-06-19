@@ -3,6 +3,7 @@
     "chrono",
     "fullname",
     "Hasher",
+    "oneshot",
     "signin",
     "sqlx",
     "thiserror"
