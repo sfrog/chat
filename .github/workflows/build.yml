@@ -12,7 +12,13 @@ on:
 
 permissions:
   contents: write
-services:
+jobs:
+  build-rust:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+    services:
       postgres:
         image: postgres:16
         env:
@@ -27,13 +33,6 @@ services:
         ports:
           # Maps tcp port 5432 on service container to the host
           - 5432:5432
-jobs:
-  build-rust:
-    strategy:
-      matrix:
-        platform: [ubuntu-latest]
-    runs-on: ${{ matrix.platform }}
-
     steps:
       - uses: actions/checkout@v4
         with:
