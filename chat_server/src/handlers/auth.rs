@@ -46,7 +46,7 @@ mod tests {
     #[tokio::test]
     async fn test_signup_handler() -> anyhow::Result<()> {
         let (_tdb, state) = AppState::try_new_for_test(AppConfig::load()?).await?;
-        let input = CreateUser::new("fullname", "email", "password");
+        let input = CreateUser::new("default", "fullname", "email", "password");
         let ret = signup_handler(State(state), Json(input))
             .await?
             .into_response();
@@ -62,7 +62,7 @@ mod tests {
     #[tokio::test]
     async fn test_signin_handler() -> anyhow::Result<()> {
         let (_tdb, state) = AppState::try_new_for_test(AppConfig::load()?).await?;
-        let user = CreateUser::new("fullname", "email", "password");
+        let user = CreateUser::new("default", "fullname", "email", "password");
         User::create(&user, &state.pool).await?;
 
         let input = SigninUser::new("email", "password");
